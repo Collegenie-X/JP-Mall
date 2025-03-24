@@ -100,21 +100,13 @@ REST_FRAMEWORK = {
 ######## Email Setting (SES)  ##########
 
 EMAIL_BACKEND = "django_ses.SESBackend"
-AWS_SES_REGION_ENDPOINT = "email.us-east-2.amazonaws.com"
+AWS_SES_REGION_ENDPOINT = "email.ap-northeast-2.amazonaws.com"
 
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 AWS_SES_REGION_NAME = os.getenv("AWS_REGION_NAME")
-AWS_S3_REGION_NAME = os.getenv("AWS_REGION_NAME")
-AWS_S3_CUSTOM_DOMAIN = (
-    f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
-)
 AWS_DEFAULT_ACL = None
-AWS_S3_OBJECT_PARAMETERS = {
-    "CacheControl": "max-age=86400",
-}
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

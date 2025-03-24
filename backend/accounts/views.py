@@ -24,6 +24,8 @@ from accounts.accounts_service import AccountsService
 from rest_framework.views import APIView
 import uuid
 
+import datetime
+
 
 import logging
 import firebase_admin
@@ -147,7 +149,7 @@ class UserViewSet(viewsets.GenericViewSet):
                 send_mail(
                     subject,
                     message,
-                    "support@essayfit.com",
+                    "jp798@naver.com",
                     [user.email],
                     html_message=html_message,
                 )
@@ -257,7 +259,7 @@ class UserViewSet(viewsets.GenericViewSet):
                 jti=jti,
                 token=str(token),
                 created_at=timezone.now(),
-                expires_at=timezone.datetime.fromtimestamp(exp, timezone.utc),
+                expires_at=timezone.datetime.fromtimestamp(exp, datetime.timezone.utc),
             )
             BlacklistedToken.objects.create(token=OutstandingToken.objects.get(jti=jti))
         except Exception as e:
@@ -316,7 +318,7 @@ class ForgotPasswordAPI(APIView):
             subject = "[store.studyola.com] Temporary Password"
             message = f"Hello {user.username},\n\nYour temporary password is: {new_password}\n\nPlease use this password to log in and change your password immediately."
             try:
-                send_mail(subject, message, "support@essayfit.com", [email])
+                send_mail(subject, message, "jp798@naver.com", [email])
                 logger.info(f"Temporary password sent to {email}")
             except Exception as e:
                 logger.error(f"Failed to send temporary password email to {email}: {e}")
