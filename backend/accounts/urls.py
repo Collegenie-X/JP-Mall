@@ -8,7 +8,7 @@ from .views import (
     VerifyTokenView,
 )
 
-from kakaoViews import KakaoSignInView
+from .kakaoViews import KakaoSignInView
 
 router = DefaultRouter()
 router.register(r"users", UserViewSet, basename="user")
