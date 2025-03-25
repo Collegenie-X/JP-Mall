@@ -117,6 +117,11 @@ EMAIL_USE_TLS = True
 FIREBASE_SERVICE_ACCOUNT_KEY = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
 
 
+##### Kakao Authentication Settings ##### 
+KAKAO_REST_API_KEY = os.getenv("KAKAO_REST_API_KEY")
+KAKAO_REDIRECT_URI = os.getenv("KAKAO_REDIRECT_URI")
+
+
 HOST_URL = os.getenv("HOST_URL")
 
 

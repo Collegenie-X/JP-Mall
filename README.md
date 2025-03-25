@@ -135,3 +135,11 @@ python manage.py runserver
 > - django-admin-logs
 > - django-rangefilter
 
+
+
+# Kakao Token 인증 후 Django 서버로 로그인/회원가입 요청
+curl -X POST "http://127.0.0.1:8000/api/v1/signin/kakao/" \
+  -H "Content-Type: application/json" \
+  -d '{"kakao_token": "사용자가_카카오에서_받은_access_token"}'
+
+
